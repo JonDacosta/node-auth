@@ -1,3 +1,4 @@
+import { Server } from "./presentation/server";
 
 
 (() => {
@@ -8,5 +9,8 @@ async function main() {
     // await base de datos
 
     //to-to inicio de server
-    console.log('object');
+    new Server({
+        
+    })
+        .start
 }
