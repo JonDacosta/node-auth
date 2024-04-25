@@ -10,7 +10,7 @@ export class AppRoutes {
         const router = Router();
 
         //Rutas principales
-        router.use('./api/auth', AuthRoutes.routes);
+        router.use('/api/auth', AuthRoutes.routes);
 
 
         return router;
