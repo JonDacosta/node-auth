@@ -22,7 +22,7 @@ export class RegisterUserDto {
             undefined,
             new RegisterUserDto(
                 name, email, password
-            ); 
+            )
         ];
     }
 
