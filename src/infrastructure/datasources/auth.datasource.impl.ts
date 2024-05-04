@@ -1,6 +1,7 @@
 import { BcryptAdapter } from "../../config/bcrypt";
 import { UserModel } from "../../data/mongodb";
 import { AuthDatasource, CustomError, RegisterUserDto, UserEntity } from "../../domain";
+import { UserMapper } from "../mappers/user.mapper";
 
 type HashFunction = (password: string) => string;
 type CompareFunction = (password: string, hashed: string) => boolean;
@@ -34,14 +35,9 @@ export class AuthDatasourceImpl implements AuthDatasource {
             await user.save();
 
 
-            // TO DO falta un mapper
-            return new UserEntity(
-                user.id,
-                name,
-                email,
-                password,
-                user.roles,
-            )
+        
+            return UserMapper.userEntityFromObject(user); 
+            
 
         } catch ( error ) {
             if( error instanceof CustomError ) {
