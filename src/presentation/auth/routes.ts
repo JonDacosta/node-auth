@@ -20,6 +20,8 @@ export class AuthRoutes {
 
         router.post('/register', controller.registerUser )
 
+        router.get('/', controller.getUsers );
+
 
 
         
