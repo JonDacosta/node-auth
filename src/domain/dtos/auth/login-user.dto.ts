@@ -1,18 +1,16 @@
 import { Validators } from "../../../config";
 
-export class RegisterUserDto {
+export class LoginUserDto {
 
     private constructor(
-        public name: string,
         public email: string,
         public password: string,
     ) { }
 
-    static create(object: { [key: string]: any }): [string?, RegisterUserDto?] {
+    static create(object: { [key: string]: any }): [string?, LoginUserDto?] {
 
-        const { name, email, password } = object;
+        const { email, password } = object;
 
-        if (!name) return ['Missing name'];
         if (!email) return ['Missing email'];
         if (!Validators.email.test(email)) return ['Email is not valid'];
         if (!password) return ['Missing password'];
@@ -20,8 +18,8 @@ export class RegisterUserDto {
 
         return [
             undefined,
-            new RegisterUserDto(
-                name, email, password
+            new LoginUserDto(
+                email, password
             )
         ];
     }

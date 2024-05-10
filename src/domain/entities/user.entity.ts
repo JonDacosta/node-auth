@@ -8,6 +8,6 @@ export class UserEntity {
         public role: string[],
         public img?: string,
     ) {
-        
+
     }
 }
